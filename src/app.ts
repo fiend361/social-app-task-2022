@@ -14,7 +14,10 @@ const app = express();
 mongoose
     .connect(config.mongo.url)
     .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.error('Could not connect to MongoDB...', err));
+    .catch(err => {
+        console.error('Could not connect to MongoDB...', err);
+        process.exit(1);
+    });
 
 app.use('/images', express.static('./images'));
 app.use(bodyParser.urlencoded({ extended: true }));
