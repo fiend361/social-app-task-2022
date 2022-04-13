@@ -1,7 +1,11 @@
 import React from 'react';
 import IUser from './../../src/interfaces/user';
 
+import { useNavigate } from 'react-router-dom';
+
 export const UserOverview: React.FC<{ user: IUser }> = ({ user }) => {
+  let navigate = useNavigate();
+
   return (
     <div>
       <strong>User {user.name.split(" ")[0]}</strong>
@@ -10,6 +14,9 @@ export const UserOverview: React.FC<{ user: IUser }> = ({ user }) => {
         <li>Email: {user.email}</li>
         <li>Created at: {user.createdAt}</li>
       </ul>
+      <button onClick={() => {
+          navigate('/users/' + user.id);
+        }}>Go to User</button>
     </div>
   );
 };

@@ -5,14 +5,21 @@ import { PostOverview } from './PostOverview';
 
 import IPost from './../../src/interfaces/post';
 
-export const PostsList: React.FC = () => {
+export const PostsList: React.FC<{ userId?: string }> = ({ userId }) => {
   const [posts, setPosts] = React.useState<IPost[]>([]);
   
   React.useEffect(() => {
-    axios.get('https://social-app-acm.herokuapp.com/posts')
-      .then(res => {
-        setPosts(res.data);
-      });
+    if (userId) {
+      axios.get(`https://social-app-acm.herokuapp.com/posts?user=${userId}`)
+        .then(res => {
+          setPosts(res.data);
+        });
+    } else {
+      axios.get('https://social-app-acm.herokuapp.com/posts')
+        .then(res => {
+          setPosts(res.data);
+        });
+    }
   }, []);
 
   return (
