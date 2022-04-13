@@ -6,7 +6,7 @@ import { PostOverview } from './PostOverview';
 import IPost from './../../src/interfaces/post';
 
 export const PostsList: React.FC = () => {
-    const [posts, setPosts] = React.useState<IPost[]>([]);
+  const [posts, setPosts] = React.useState<IPost[]>([]);
   
   React.useEffect(() => {
     axios.get('https://social-app-acm.herokuapp.com/posts')

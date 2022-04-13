@@ -1,8 +1,7 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { UserList } from './UsersList';
-import IUser from './../../src/interfaces/user';
+import { PostsList } from './postsList';
 
 import './App.css';
 
@@ -11,7 +10,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<UserList />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/posts" element={<PostsList />} />
         </Routes>
       </Router>
     </div>
