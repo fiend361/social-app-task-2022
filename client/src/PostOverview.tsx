@@ -1,7 +1,7 @@
 import React from 'react';
 import IPost from './../../src/interfaces/post';
 
-export const UserOverview: React.FC<{ post: IPost }> = ({ post }) => {
+export const PostOverview: React.FC<{ post: IPost }> = ({ post }) => {
   return (
     <div>
       <ul>
