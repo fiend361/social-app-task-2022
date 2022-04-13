@@ -15,7 +15,7 @@ export const UserOverview: React.FC<{ user: IUser }> = ({ user }) => {
         <li>Created at: {user.createdAt}</li>
       </ul>
       <button onClick={() => {
-          navigate('/users/' + user.id);
+          navigate(`/users/${user._id}`);
         }}>Go to User</button>
     </div>
   );
